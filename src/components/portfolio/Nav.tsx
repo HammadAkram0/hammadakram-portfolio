@@ -27,10 +27,6 @@ export function Nav() {
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
-        <a href="#top" className="font-bold text-lg tracking-tight">
-          <span className="text-gradient">Hammad</span>
-          <span className="text-foreground">.dev</span>
-        </a>
         <nav className="hidden md:flex items-center gap-7 text-sm">
           {links.map((l) => (
             <a
