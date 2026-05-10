@@ -238,8 +238,8 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
           </button>
         </div>
 
-        <div className="p-3 md:p-5 bg-background/40 border-b border-border overflow-y-auto max-h-[50vh]">
-          <img src={project.image} alt={project.title} className="w-full h-auto rounded-md" />
+        <div className="p-3 md:p-5 bg-background/40 border-b border-border">
+          <img src={project.image} alt={project.title} className="w-full h-auto max-h-[45vh] object-contain object-top rounded-md" />
         </div>
 
         <div className="p-6 md:p-8">
