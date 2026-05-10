@@ -55,7 +55,7 @@ export function Certifications() {
                 src={c.badge}
                 alt={`${c.name} badge`}
                 loading="lazy"
-                className="h-full w-full object-contain group-hover:scale-105 transition-transform"
+                className={`object-contain group-hover:scale-105 transition-transform ${c.code === "DP-600" ? "h-full w-full scale-125" : "h-full w-full"}`}
               />
             </div>
             <p className="font-mono text-[10px] text-primary uppercase tracking-wider mb-1">{c.code}</p>
