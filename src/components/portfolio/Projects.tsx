@@ -223,7 +223,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
       onClick={onClose}
     >
       <div
-        className="glass rounded-2xl max-w-4xl w-full my-8 overflow-hidden shadow-glow animate-fade-up"
+        className="glass rounded-2xl max-w-6xl w-full my-8 overflow-hidden shadow-glow animate-fade-up"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center justify-between px-5 py-3 border-b border-border bg-secondary/60">
@@ -238,8 +238,8 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
           </button>
         </div>
 
-        <div className="p-3 md:p-5 bg-background/40 border-b border-border">
-          <img src={project.image} alt={project.title} className="w-full max-h-[60vh] object-contain rounded-md" />
+        <div className="p-3 md:p-5 bg-background/40 border-b border-border overflow-y-auto max-h-[50vh]">
+          <img src={project.image} alt={project.title} className="w-full h-auto rounded-md" />
         </div>
 
         <div className="p-6 md:p-8">
