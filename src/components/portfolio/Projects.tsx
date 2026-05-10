@@ -164,14 +164,14 @@ export function Projects() {
                 <span className="w-2 h-2 rounded-full bg-green-500/60" />
                 <span className="ml-2 font-mono text-[10px] text-muted-foreground truncate">{p.id}.pbix</span>
               </div>
-         <div className="rounded-md overflow-hidden bg-background/60">
-  <img
-    src={p.image}
-    alt={p.title}
-    loading="lazy"
-    className="w-full h-auto object-top group-hover:scale-[1.02] transition-transform duration-700"
-  />
-</div>
+              <div className="rounded-md overflow-hidden bg-background/60">
+                <img
+                  src={p.image}
+                  alt={p.title}
+                  loading="lazy"
+                  className="w-full h-auto object-top group-hover:scale-[1.02] transition-transform duration-700"
+                />
+              </div>
             </div>
             <div className="p-5 flex-1 flex flex-col">
               <p className="text-[11px] font-mono text-primary mb-1.5 uppercase tracking-wider">{p.client}</p>
@@ -239,7 +239,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
         </div>
 
         <div className="p-3 md:p-5 bg-background/40 border-b border-border">
-          <img src={project.image} alt={project.title} className="w-full h-auto rounded-md" />
+          <img src={project.image} alt={project.title} className="w-full max-h-[60vh] object-contain rounded-md" />
         </div>
 
         <div className="p-6 md:p-8">
