@@ -164,14 +164,14 @@ export function Projects() {
                 <span className="w-2 h-2 rounded-full bg-green-500/60" />
                 <span className="ml-2 font-mono text-[10px] text-muted-foreground truncate">{p.id}.pbix</span>
               </div>
-              <div className="rounded-md overflow-hidden bg-background/60 aspect-[16/10] flex items-center justify-center p-2">
-                <img
-                  src={p.image}
-                  alt={p.title}
-                  loading="lazy"
-                  className="max-w-full max-h-full w-auto h-auto object-contain group-hover:scale-[1.02] transition-transform duration-700"
-                />
-              </div>
+         <div className="rounded-md overflow-hidden bg-background/60">
+  <img
+    src={p.image}
+    alt={p.title}
+    loading="lazy"
+    className="w-full h-auto object-top group-hover:scale-[1.02] transition-transform duration-700"
+  />
+</div>
             </div>
             <div className="p-5 flex-1 flex flex-col">
               <p className="text-[11px] font-mono text-primary mb-1.5 uppercase tracking-wider">{p.client}</p>
