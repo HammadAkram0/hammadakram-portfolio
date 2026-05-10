@@ -219,11 +219,11 @@ export function Projects() {
 function ProjectModal({ project, onClose }: { project: Project; onClose: () => void }) {
   return (
     <div
-      className="fixed inset-0 z-[100] bg-background/80 backdrop-blur-md flex items-start md:items-center justify-center p-4 overflow-y-auto"
+      className="fixed inset-0 z-[100] bg-background/80 backdrop-blur-md flex items-start justify-center p-4 overflow-y-auto"
       onClick={onClose}
     >
       <div
-        className="glass rounded-2xl max-w-6xl w-full my-8 overflow-hidden shadow-glow animate-fade-up"
+        className="glass rounded-2xl max-w-6xl w-full my-4 overflow-hidden shadow-glow animate-fade-up"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center justify-between px-5 py-3 border-b border-border bg-secondary/60">
@@ -239,7 +239,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
         </div>
 
         <div className="p-3 md:p-5 bg-background/40 border-b border-border">
-          <img src={project.image} alt={project.title} className="w-full h-auto max-h-[55vh] object-contain object-top rounded-md" />
+          <img src={project.image} alt={project.title} className="w-full h-auto object-top rounded-md" />
         </div>
 
         <div className="p-6 md:p-8">
