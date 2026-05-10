@@ -7,7 +7,7 @@ export function About() {
       <div className="grid md:grid-cols-[1.5fr_1fr] gap-10">
         <div className="space-y-5 text-muted-foreground leading-relaxed">
           <p>
-            I'm a seasoned<span className="text-foreground font-semibold">Data Analytics Engineer</span> with
+            I'm a seasoned <span className="text-foreground font-semibold">Data Analytics Engineer</span> with
             expertise in transforming complex data into meaningful insights. I specialize in building enterprise-grade BI
             solutions using Power BI, Azure services, and Microsoft Fabric.
           </p>
