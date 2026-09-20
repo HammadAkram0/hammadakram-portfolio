@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useRef, useState } from "react";
+import * as Dialog from "@radix-ui/react-dialog";
 import { Section } from "./Section";
 import operational from "@/assets/dashboard-operational.png";
 import wwi from "@/assets/dashboard-wwi.png";
@@ -10,7 +11,9 @@ import { ExternalLink, X, ArrowUpRight } from "lucide-react";
 
 type Project = {
   id: string;
-  image: string;
+  image?: string;
+  outcome?: string;
+  repository?: string;
   title: string;
   client: string;
   tagline: string;
@@ -21,6 +24,40 @@ type Project = {
 };
 
 const projects: Project[] = [
+  {
+    id: "fabric-migration",
+    title: "Dynamics 365 to Microsoft Fabric",
+    client: "Professional case study · Tkxel",
+    outcome: "5–6 hours → 20 minutes",
+    tagline:
+      "Redesigned data pipelines to reduce refresh time and deliver curated data for Power BI reporting.",
+    description:
+      "Dynamics 365 reporting was constrained by 5–6-hour refresh cycles. At Tkxel, I redesigned and implemented end-to-end Microsoft Fabric pipelines, ingesting D365 F&O and CRM data and transforming it with notebooks. A Bronze, Silver, and Gold architecture organized processing, with curated data served through a warehouse for Power BI. Refresh time fell to 20 minutes.",
+    highlights: [
+      "My contribution: pipeline development, transformations, and data modeling",
+      "D365 F&O and CRM ingestion through Fabric pipelines",
+      "Notebook-based cleansing and medallion architecture",
+      "Measured result: refresh time reduced from 5–6 hours to 20 minutes",
+    ],
+    tags: ["Microsoft Fabric", "Dynamics 365", "Pipelines", "Lakehouse"],
+  },
+  {
+    id: "public-sector-reporting",
+    title: "Public-Sector Operations & Executive Reporting",
+    client: "Professional case study · Systems Limited",
+    outcome: "90+ KPIs · 19 executive measures",
+    tagline:
+      "Unified contact-center reporting across multiple entities, with executive scorecards and role-based access.",
+    description:
+      "At Systems Limited, I combined Genesys, Dynamics 365, Kore.ai, and Hive data into a shared Power BI model for multiple public-sector entities. I delivered operational and executive reporting covering contact-center performance, workforce, customer experience, and case management. My work included weighted executive scorecards, model corrections, access controls, and documented KPI logic for audit and handover.",
+    highlights: [
+      "My contribution: semantic modeling, dashboard development, DAX, and reporting controls",
+      "Operational dashboards covering 90+ KPIs",
+      "Executive scorecards combining 19 KPIs into weighted performance scores",
+      "Row-Level Security, source documentation, and automated PDF delivery",
+    ],
+    tags: ["Power BI", "DAX", "Data Modeling", "Power Automate"],
+  },
   {
     id: "operational",
     image: operational,
@@ -42,8 +79,9 @@ const projects: Project[] = [
   {
     id: "wwi",
     image: wwi,
-    title: "World Wide Importers Sales Dashboard",
-    client: "Microsoft Fabric · Lakehouse",
+    title: "Wide World Importers Sales Dashboard",
+    client: "Sample-data project · Microsoft Fabric",
+    repository: "https://github.com/HammadAkram0/Microsoft-Fabric-WWI-Data-Engineering-Project",
     tagline:
       "End-to-end Fabric solution turning raw operational data into a polished sales analytics experience.",
     description:
@@ -131,65 +169,76 @@ const projects: Project[] = [
 
 export function Projects() {
   const [open, setOpen] = useState<Project | null>(null);
-
-  useEffect(() => {
-    if (!open) return;
-    document.body.style.overflow = "hidden";
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(null);
-    window.addEventListener("keydown", onKey);
-    return () => {
-      document.body.style.overflow = "";
-      window.removeEventListener("keydown", onKey);
-    };
-  }, [open]);
+  const trigger = useRef<HTMLButtonElement | null>(null);
 
   return (
     <Section
       id="projects"
       number="04"
       title="Featured Projects"
-      subtitle="// Selected dashboards & data platforms — click any card to explore."
+      subtitle="// Professional case studies and dashboard projects — open the details to explore."
     >
       <div className="grid md:grid-cols-2 gap-6">
         {projects.map((p) => (
           <div
             key={p.id}
-            className="group text-left glass rounded-xl overflow-hidden hover:border-primary/50 hover:-translate-y-1 transition-all duration-500 shadow-card-soft flex flex-col cursor-pointer"
-            onClick={() => setOpen(p)}
+            className="group text-left glass rounded-xl overflow-hidden hover:border-primary/50 hover:-translate-y-1 transition-all duration-500 shadow-card-soft flex flex-col"
           >
             <div className="relative bg-secondary p-3 border-b border-border">
               <div className="flex items-center gap-1.5 mb-2">
                 <span className="w-2 h-2 rounded-full bg-red-500/60" />
                 <span className="w-2 h-2 rounded-full bg-yellow-500/60" />
                 <span className="w-2 h-2 rounded-full bg-green-500/60" />
-                <span className="ml-2 font-mono text-[10px] text-muted-foreground truncate">{p.id}.pbix</span>
+                <span className="ml-2 font-mono text-[10px] text-muted-foreground truncate">
+                  {p.image ? `${p.id}.pbix` : "Project case study"}
+                </span>
               </div>
               <div className="rounded-md overflow-hidden bg-background/60">
-                <img
-                  src={p.image}
-                  alt={p.title}
-                  loading="lazy"
-                  className="w-full h-auto object-top group-hover:scale-[1.02] transition-transform duration-700"
-                />
+                {p.image ? (
+                  <img
+                    src={p.image}
+                    alt={p.title}
+                    loading="lazy"
+                    className="w-full aspect-video object-contain group-hover:scale-[1.02] transition-transform duration-700"
+                  />
+                ) : (
+                  <div className="aspect-video flex items-center justify-center p-6 text-center">
+                    <p className="text-2xl font-bold text-primary">{p.outcome}</p>
+                  </div>
+                )}
               </div>
             </div>
             <div className="p-5 flex-1 flex flex-col">
-              <p className="text-[11px] font-mono text-primary mb-1.5 uppercase tracking-wider">{p.client}</p>
+              <p className="text-[11px] font-mono text-primary mb-1.5 uppercase tracking-wider">
+                {p.client}
+              </p>
               <h3 className="text-lg font-bold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
                 {p.title}
-                <ArrowUpRight size={16} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                <ArrowUpRight
+                  size={16}
+                  className="opacity-0 group-hover:opacity-100 transition-opacity"
+                />
               </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">{p.tagline}</p>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">
+                {p.tagline}
+              </p>
               <div className="flex flex-wrap gap-1.5 mb-4">
                 {p.tags.map((t) => (
-                  <span key={t} className="text-[11px] px-2 py-0.5 rounded-md bg-primary/10 text-primary font-mono">
+                  <span
+                    key={t}
+                    className="text-[11px] px-2 py-0.5 rounded-md bg-primary/10 text-primary font-mono"
+                  >
                     {t}
                   </span>
                 ))}
               </div>
               <div className="flex items-center gap-2 mt-auto">
                 <button
-                  onClick={(e) => { e.stopPropagation(); setOpen(p); }}
+                  onClick={(e) => {
+                    trigger.current = e.currentTarget;
+                    setOpen(p);
+                  }}
+                  aria-label={`View details: ${p.title}`}
                   className="inline-flex items-center gap-1.5 px-4 py-2 rounded-md bg-primary text-primary-foreground font-mono text-xs font-semibold hover:shadow-glow transition-all"
                 >
                   View Details
@@ -205,78 +254,145 @@ export function Projects() {
                     Live <ExternalLink size={12} />
                   </a>
                 )}
+                {p.repository && (
+                  <a
+                    href={p.repository}
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="text-sm text-primary hover:underline"
+                  >
+                    Source <ExternalLink className="inline" size={12} />
+                  </a>
+                )}
               </div>
             </div>
           </div>
         ))}
       </div>
 
-      {open && <ProjectModal project={open} onClose={() => setOpen(null)} />}
+      {open && (
+        <ProjectModal
+          project={open}
+          onClose={() => setOpen(null)}
+          onRestoreFocus={() => trigger.current?.focus()}
+        />
+      )}
     </Section>
   );
 }
 
-function ProjectModal({ project, onClose }: { project: Project; onClose: () => void }) {
+function ProjectModal({
+  project,
+  onClose,
+  onRestoreFocus,
+}: {
+  project: Project;
+  onClose: () => void;
+  onRestoreFocus: () => void;
+}) {
   return (
-    <div
-      className="fixed inset-0 z-[100] bg-background/80 backdrop-blur-md flex items-start justify-center p-4 overflow-y-auto"
-      onClick={onClose}
+    <Dialog.Root
+      open
+      onOpenChange={(value) => {
+        if (!value) onClose();
+      }}
     >
-      <div
-        className="glass rounded-2xl max-w-6xl w-full my-4 overflow-hidden shadow-glow animate-fade-up"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <div className="flex items-center justify-between px-5 py-3 border-b border-border bg-secondary/60">
-          <div className="flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
-            <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
-            <span className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
-            <span className="ml-3 font-mono text-xs text-muted-foreground">{project.id}.pbix</span>
-          </div>
-          <button onClick={onClose} aria-label="Close" className="text-muted-foreground hover:text-foreground">
-            <X size={20} />
-          </button>
-        </div>
-
-        <div className="p-3 md:p-5 bg-background/40 border-b border-border">
-          <img src={project.image} alt={project.title} className="w-full h-auto object-top rounded-md" />
-        </div>
-
-        <div className="p-6 md:p-8">
-          <p className="text-xs font-mono text-primary uppercase tracking-wider mb-2">{project.client}</p>
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">{project.title}</h2>
-          <p className="text-muted-foreground leading-relaxed mb-6">{project.description}</p>
-
-          <h3 className="font-mono text-sm text-primary mb-3">// Highlights</h3>
-          <ul className="space-y-2 mb-6">
-            {project.highlights.map((h) => (
-              <li key={h} className="flex gap-3 text-sm text-muted-foreground">
-                <span className="text-primary mt-0.5">▹</span>
-                <span>{h}</span>
-              </li>
-            ))}
-          </ul>
-
-          <div className="flex flex-wrap gap-2 mb-6">
-            {project.tags.map((t) => (
-              <span key={t} className="text-xs px-2.5 py-1 rounded-md bg-primary/10 text-primary font-mono">
-                {t}
+      <Dialog.Portal>
+        <Dialog.Overlay className="project-overlay" />
+        <Dialog.Content
+          className="project-dialog glass rounded-2xl shadow-glow"
+          onCloseAutoFocus={(event) => {
+            event.preventDefault();
+            onRestoreFocus();
+          }}
+        >
+          <div className="flex items-center justify-between px-5 py-3 border-b border-border bg-secondary/60">
+            <div className="flex items-center gap-1.5">
+              <span className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
+              <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
+              <span className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
+              <span className="ml-3 font-mono text-xs text-muted-foreground">
+                {project.image ? `${project.id}.pbix` : "Project case study"}
               </span>
-            ))}
+            </div>
+            <button
+              onClick={onClose}
+              aria-label="Close"
+              className="text-muted-foreground hover:text-foreground"
+            >
+              <X size={20} />
+            </button>
           </div>
 
-          {project.link && (
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-primary text-primary-foreground font-mono text-sm font-semibold hover:shadow-glow transition-all"
-            >
-              View Live Dashboard <ExternalLink size={16} />
-            </a>
+          {project.image && (
+            <div className="p-3 md:p-5 bg-background/40 border-b border-border">
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-auto object-top rounded-md"
+              />
+            </div>
           )}
-        </div>
-      </div>
-    </div>
+
+          <div className="p-6 md:p-8">
+            <p className="text-xs font-mono text-primary uppercase tracking-wider mb-2">
+              {project.client}
+            </p>
+            <Dialog.Title className="text-2xl md:text-3xl font-bold mb-4">
+              {project.title}
+            </Dialog.Title>
+            {project.outcome && (
+              <p className="text-xl font-semibold text-primary mb-4">{project.outcome}</p>
+            )}
+            <Dialog.Description className="text-muted-foreground leading-relaxed mb-6">
+              {project.description}
+            </Dialog.Description>
+
+            <h3 className="font-mono text-sm text-primary mb-3">// Highlights</h3>
+            <ul className="space-y-2 mb-6">
+              {project.highlights.map((h) => (
+                <li key={h} className="flex gap-3 text-sm text-muted-foreground">
+                  <span className="text-primary mt-0.5">▹</span>
+                  <span>{h}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="flex flex-wrap gap-2 mb-6">
+              {project.tags.map((t) => (
+                <span
+                  key={t}
+                  className="text-xs px-2.5 py-1 rounded-md bg-primary/10 text-primary font-mono"
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
+
+            {project.link && (
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-primary text-primary-foreground font-mono text-sm font-semibold hover:shadow-glow transition-all"
+              >
+                View Live Dashboard <ExternalLink size={16} />
+              </a>
+            )}
+            {project.repository && (
+              <a
+                href={project.repository}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 text-primary hover:underline"
+              >
+                Explore the source on GitHub <ExternalLink size={16} />
+              </a>
+            )}
+          </div>
+        </Dialog.Content>
+      </Dialog.Portal>
+    </Dialog.Root>
   );
 }

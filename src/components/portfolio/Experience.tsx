@@ -3,17 +3,31 @@ import { Section } from "./Section";
 
 const jobs = [
   {
-    company: "Tkxel",
-    role: "Data Analytics Engineer",
-    period: "Mar 2025 – Present",
+    company: "Systems Limited",
+    role: "Data Analytics Consultant",
+    period: "Apr 2026 – Present",
     location: "Lahore",
     bullets: [
-      "Developed advanced Power BI dashboards using Direct Lake & DirectQuery for real-time insights",
+      "Unified Genesys, Dynamics 365, Kore.ai, and Hive data into a single Power BI model for multiple public-sector entities",
+      "Delivered operational, ITSM, and customer experience dashboards covering 90+ KPIs, including live queue volumes, agent status, and SLA compliance",
+      "Built executive scorecards consolidating 19 KPIs into weighted performance scores with custom DAX-generated SVG visuals",
+      "Implemented Row-Level Security and role-specific views, and documented KPI definitions, DAX logic, and source systems for audit and handover",
+      "Resolved pipeline, data quality, and modeling issues, including bridge tables and inconsistent channel definitions",
+      "Automated recurring reporting and scheduled PDF delivery with Power Automate",
+    ],
+  },
+  {
+    company: "Tkxel",
+    role: "Data Analytics Engineer",
+    period: "Mar 2025 – Mar 2026",
+    location: "Lahore",
+    bullets: [
+      "Reduced data refresh time from 5–6 hours to 20 minutes by redesigning end-to-end pipelines in Microsoft Fabric",
       "Built and deployed custom data agents in Microsoft Fabric using Copilot Studio",
       "Led data engineering projects using Azure Data Factory, Data Lake Gen2, Databricks, and Synapse",
       "Implemented medallion architecture for scalable pipelines and warehousing",
       "Configured SSRS for automated report subscriptions and secure data access",
-      "Optimized DAX calculations and T-SQL queries for complex business logic",
+      "Optimized DAX measures and T-SQL queries, reducing report latency by 30%",
     ],
   },
   {
@@ -22,7 +36,7 @@ const jobs = [
     period: "Oct 2024 – Mar 2025",
     location: "Lahore",
     bullets: [
-      "Developed centralized financial ledger system reducing workload by 15–20 minutes per task",
+      "Developed a centralized financial ledger in Power BI to reduce manual reporting work for the finance team",
       "Built Centralized Order Performance Dashboard with real-time insights",
       "Designed data warehousing solutions using incremental refresh",
       "Implemented Gen2 Dataflows for efficient ETL from MySQL databases",

@@ -7,22 +7,23 @@ export function About() {
       <div className="grid md:grid-cols-[1.5fr_1fr] gap-10">
         <div className="space-y-5 text-muted-foreground leading-relaxed">
           <p>
-            I'm a seasoned <span className="text-foreground font-semibold">Data Analytics Engineer</span> with
-            expertise in transforming complex data into meaningful insights. I specialize in building enterprise-grade BI
-            solutions using Power BI, Azure services, and Microsoft Fabric.
+            I'm Hammad, a{" "}
+            <span className="text-foreground font-semibold">Data Analytics Engineer</span>{" "}
+            specializing in Power BI, Microsoft Fabric, and Azure. I design, support, and optimize
+            data pipelines, semantic models, and enterprise BI solutions.
           </p>
           <p>
-            With over <span className="text-foreground font-semibold">4 years of experience</span> in the
-            data domain, I've helped organizations streamline reporting processes, implement data
-            warehousing solutions, and develop automated data pipelines, driving real time savings
-            and smarter decisions across teams.
+            With over <span className="text-foreground font-semibold">4 years of experience</span>{" "}
+            in the data domain, my work spans BI engineering and analytics engineering—from data
+            integration and warehouse design to executive dashboards and performance optimization.
+            At Systems Limited, I support public-sector reporting with access controls, data quality
+            improvements, and documented KPI definitions.
           </p>
           <p>
-            Also I'm a 3x Microsoft Certified professional holding the{" "}
-            <span className="text-foreground">Power BI Data Analyst (PL-300)</span>,{" "}
-            <span className="text-foreground">Azure Data Fundamentals (DP-900)</span>, and{" "}
-            <span className="text-foreground">Fabric Analytics Engineer (DP-600)</span> certifications,
-            constantly leveling up in cloud and data engineering.
+            I'm <span className="text-foreground font-semibold">5× Microsoft Certified</span> across
+            Power BI, Fabric Analytics Engineering, Azure Data Fundamentals, Azure AI Fundamentals,
+            and AI Business. I focus on building reliable solutions that are easy to maintain and
+            useful to the people making decisions with them.
           </p>
         </div>
         <div className="grid grid-cols-2 gap-3">
@@ -32,7 +33,10 @@ export function About() {
             { icon: GraduationCap, label: "Education", value: "B.S. IT" },
             { icon: Award, label: "Experience", value: "4+ Years" },
           ].map((item) => (
-            <div key={item.label} className="glass rounded-2xl p-4 hover:border-primary/40 transition-colors">
+            <div
+              key={item.label}
+              className="glass rounded-2xl p-4 hover:border-primary/40 transition-colors"
+            >
               <item.icon className="text-primary mb-2" size={20} />
               <div className="text-xs text-muted-foreground">{item.label}</div>
               <div className="text-sm font-semibold text-foreground">{item.value}</div>
