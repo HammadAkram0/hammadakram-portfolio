@@ -29,8 +29,20 @@ const certs: { badge?: string; name: string; code: string; issuer: string; url?:
     issuer: "Microsoft",
     url: "https://learn.microsoft.com/en-us/users/hammadakram-5687/credentials/dfa9ac37d3e0c121",
   },
-  { badge: ai900, name: "Azure AI Fundamentals", code: "AI-900", issuer: "Microsoft" },
-  { badge: ab730, name: "AI Business Professional", code: "AB-730", issuer: "Microsoft" },
+  {
+    badge: ai900,
+    name: "Azure AI Fundamentals",
+    code: "AI-900",
+    issuer: "Microsoft",
+    url: "https://learn.microsoft.com/en-us/users/hammadakram-5687/credentials/6bea3a51235aa85e",
+  },
+  {
+    badge: ab730,
+    name: "AI Business Professional",
+    code: "AB-730",
+    issuer: "Microsoft",
+    url: "https://learn.microsoft.com/en-us/users/hammadakram-5687/credentials/b31e94a75b624d66",
+  },
   {
     badge: databricks,
     name: "Databricks Fundamentals",
