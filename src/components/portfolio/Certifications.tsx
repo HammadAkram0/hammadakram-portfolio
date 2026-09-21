@@ -4,6 +4,8 @@ import pl300 from "@/assets/cert-pl300.png";
 import dp900 from "@/assets/cert-dp900.png";
 import dp600 from "@/assets/cert-dp600.png";
 import databricks from "@/assets/cert-databricks.png";
+import ai900 from "@/assets/cert-ai900.png";
+import ab730 from "@/assets/cert-ab730.png";
 
 const certs: { badge?: string; name: string; code: string; issuer: string; url?: string }[] = [
   {
@@ -27,8 +29,15 @@ const certs: { badge?: string; name: string; code: string; issuer: string; url?:
     issuer: "Microsoft",
     url: "https://learn.microsoft.com/en-us/users/hammadakram-5687/credentials/dfa9ac37d3e0c121",
   },
-  { name: "Azure AI Fundamentals", code: "AI-900", issuer: "Microsoft" },
-  { name: "AI Business Professional", code: "AB-730", issuer: "Microsoft" },
+  { badge: ai900, name: "Azure AI Fundamentals", code: "AI-900", issuer: "Microsoft" },
+  { badge: ab730, name: "AI Business Professional", code: "AB-730", issuer: "Microsoft" },
+  {
+    badge: databricks,
+    name: "Databricks Fundamentals",
+    code: "TRAINING",
+    issuer: "Databricks",
+    url: "https://credentials.databricks.com/e896c1f4-5a94-4651-aead-40025ad8f9bd",
+  },
 ];
 
 export function Certifications() {
@@ -37,7 +46,7 @@ export function Certifications() {
       id="certifications"
       number="05"
       title="Certifications"
-      subtitle="// Five Microsoft certifications across analytics, data, and AI."
+      subtitle="// Five Microsoft certifications across analytics, data, and AI, plus Databricks Fundamentals."
     >
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {certs.map((c) => (
@@ -45,13 +54,13 @@ export function Certifications() {
             key={c.name}
             className="group glass rounded-xl p-5 hover:border-primary/40 hover:-translate-y-1 transition-all flex flex-col items-center text-center"
           >
-            <div className="h-32 w-full flex items-center justify-center mb-4">
+            <div className="h-32 w-32 shrink-0 flex items-center justify-center mb-4">
               {c.badge ? (
                 <img
                   src={c.badge}
                   alt={`${c.name} badge`}
                   loading="lazy"
-                  className={`object-contain group-hover:scale-105 transition-transform ${c.code === "DP-600" ? "h-full w-full scale-125" : "h-full w-full"}`}
+                  className="h-full w-full object-contain group-hover:scale-105 transition-transform"
                 />
               ) : (
                 <Award className="text-primary h-16 w-16" aria-hidden="true" />
@@ -74,28 +83,6 @@ export function Certifications() {
             )}
           </div>
         ))}
-      </div>
-      <div className="mt-8 glass rounded-xl p-5">
-        <h3 className="font-bold mb-4">Training & Professional Development</h3>
-        <div className="flex items-center gap-4">
-          <img
-            src={databricks}
-            alt="Databricks Fundamentals badge"
-            loading="lazy"
-            className="h-16 w-16 object-contain"
-          />
-          <div>
-            <p className="text-sm font-semibold">Databricks Fundamentals</p>
-            <a
-              href="https://credentials.databricks.com/e896c1f4-5a94-4651-aead-40025ad8f9bd"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 text-sm text-primary hover:underline"
-            >
-              View Credential <ExternalLink size={12} />
-            </a>
-          </div>
-        </div>
       </div>
     </Section>
   );

@@ -21,11 +21,13 @@ type Project = {
   highlights: string[];
   tags: string[];
   link?: string;
+  hidden?: boolean;
 };
 
 const projects: Project[] = [
   {
     id: "fabric-migration",
+    hidden: true,
     title: "Dynamics 365 to Microsoft Fabric",
     client: "Professional case study · Tkxel",
     outcome: "5–6 hours → 20 minutes",
@@ -43,6 +45,7 @@ const projects: Project[] = [
   },
   {
     id: "public-sector-reporting",
+    hidden: true,
     title: "Public-Sector Operations & Executive Reporting",
     client: "Professional case study · Systems Limited",
     outcome: "90+ KPIs · 19 executive measures",
@@ -167,6 +170,8 @@ const projects: Project[] = [
   },
 ];
 
+const visibleProjects = projects.filter((p) => !p.hidden);
+
 export function Projects() {
   const [open, setOpen] = useState<Project | null>(null);
   const trigger = useRef<HTMLButtonElement | null>(null);
@@ -176,10 +181,10 @@ export function Projects() {
       id="projects"
       number="04"
       title="Featured Projects"
-      subtitle="// Professional case studies and dashboard projects — open the details to explore."
+      subtitle="// Power BI dashboard projects — open the details to explore."
     >
       <div className="grid md:grid-cols-2 gap-6">
-        {projects.map((p) => (
+        {visibleProjects.map((p) => (
           <div
             key={p.id}
             className="group text-left glass rounded-xl overflow-hidden hover:border-primary/50 hover:-translate-y-1 transition-all duration-500 shadow-card-soft flex flex-col"
