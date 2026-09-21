@@ -9,18 +9,18 @@ import ab730 from "@/assets/cert-ab730.png";
 
 const certs: { badge?: string; name: string; code: string; issuer: string; url?: string }[] = [
   {
-    badge: dp600,
-    name: "Fabric Analytics Engineer Associate",
-    code: "DP-600",
-    issuer: "Microsoft",
-    url: "https://learn.microsoft.com/en-us/users/hammadakram-5687/credentials/5d714200032604db",
-  },
-  {
     badge: pl300,
     name: "Power BI Data Analyst Associate",
     code: "PL-300",
     issuer: "Microsoft",
     url: "https://learn.microsoft.com/en-us/users/hammadakram-1650/credentials/56ffad5d1370b09d",
+  },
+  {
+    badge: dp600,
+    name: "Fabric Analytics Engineer Associate",
+    code: "DP-600",
+    issuer: "Microsoft",
+    url: "https://learn.microsoft.com/en-us/users/hammadakram-5687/credentials/5d714200032604db",
   },
   {
     badge: dp900,
