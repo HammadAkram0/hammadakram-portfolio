@@ -1,30 +1,51 @@
-# Hammad Akram - Portfolio
+# Hammad Akram | Portfolio
 
-Senior Data Analytics Engineer specializing in building dashboards, automating workflows, and transforming data into actionable insights.
+Personal portfolio of Hammad Akram, a Data Analytics Engineer specializing in Power BI, Microsoft Fabric and Azure.
 
-🔗 **Live Site:** [https://hammadakram.vercel.app](https://hammadakram.vercel.app)
+**Live site:** [hammadakram.vercel.app](https://hammadakram.vercel.app)
 
-## About
+## What's on the site
 
-This portfolio highlights my expertise in data analytics, dashboard development, workflow automation, and data-driven solutions. It features my projects, skills, and professional experience in transforming data into actionable insights.
+- **About and experience:** background, roles and technical focus
+- **Skills and tools:** analytics, data engineering, databases, query languages, cloud and automation
+- **Featured projects:** Power BI dashboards with descriptions, highlights and live reports, plus the Fabric WWI data engineering project
+- **Certifications:** five Microsoft certifications and Databricks Fundamentals, each linked to its credential
+- **Testimonials and contact**
 
-## Technologies Used
+## Tech stack
 
-- **React** - Frontend framework
-- **TypeScript** - Type-safe development
-- **Tailwind CSS** - Modern styling
-- **Vite** - Build tool
-- **shadcn/ui** - UI components
-- **Vercel** - Deployment platform
+| Layer | Technology |
+|---|---|
+| Framework | React with TypeScript |
+| Styling | Tailwind CSS and shadcn/ui |
+| Build tool | Vite |
+| Hosting | Vercel |
+
+## Run it locally
+
+```bash
+git clone https://github.com/HammadAkram0/hammadakram-portfolio.git
+cd hammadakram-portfolio
+npm install
+npm run dev
+```
+
+Build for production with `npm run build`.
+
+## Project structure
+
+```
+src/
+  assets/              certification badges and dashboard images
+  components/portfolio/  page sections (Hero, About, Skills, Projects, Certifications, ...)
+  components/ui/         shared UI components
+  routes/                page routes
+```
 
 ## Contact
 
-- **Email:** hammadakram167@gmail.com
-- **LinkedIn:** [linkedin.com/in/hammadakram0](https://linkedin.com/in/hammadakram0)
-- **GitHub:** [github.com/HammadAkram0](https://github.com/HammadAkram0)
-- **Substack:** [hammadak.substack.com/](https://hammadak.substack.com)
+- LinkedIn: [linkedin.com/in/hammadakram0](https://www.linkedin.com/in/hammadakram0/)
+- GitHub: [github.com/HammadAkram0](https://github.com/HammadAkram0)
+- Substack: [hammadak.substack.com](https://hammadak.substack.com/)
 
-
----
-
-© 2026 Hammad Akram. All rights reserved.
+&copy; 2026 Hammad Akram. All rights reserved.
