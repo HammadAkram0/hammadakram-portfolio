@@ -46,6 +46,6 @@ src/
 
 - LinkedIn: [linkedin.com/in/hammadakram0](https://www.linkedin.com/in/hammadakram0/)
 - GitHub: [github.com/HammadAkram0](https://github.com/HammadAkram0)
-- Substack: [hammadak.substack.com](https://hammadak.substack.com/)
+- Substack: [substack.com/@hammadakrm](https://substack.com/@hammadakrm)
 
 &copy; 2026 Hammad Akram. All rights reserved.
