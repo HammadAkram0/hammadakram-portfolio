@@ -4,7 +4,7 @@ import { Section } from "./Section";
 const jobs = [
   {
     company: "Xvantech",
-    role: "Power BI Developer",
+    role: "Business Intelligence Analyst",
     period: "Aug 2025 – Present",
     location: "Arizona, USA",
     bullets: [
