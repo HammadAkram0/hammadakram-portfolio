@@ -13,11 +13,11 @@ export function About() {
             data pipelines, semantic models, and enterprise BI solutions.
           </p>
           <p>
-            With over <span className="text-foreground font-semibold">4 years of experience</span>{" "}
+            With over <span className="text-foreground font-semibold">5 years of experience</span>{" "}
             in the data domain, my work spans BI engineering and analytics engineering—from data
             integration and warehouse design to executive dashboards and performance optimization.
-            At Systems Limited, I support public-sector reporting with access controls, data quality
-            improvements, and documented KPI definitions.
+            At Xvantech, I build automotive reporting solutions across operations, finance,
+            marketing, HR, and customer analytics.
           </p>
           <p>
             I'm <span className="text-foreground font-semibold">5× Microsoft Certified</span> across
@@ -31,7 +31,7 @@ export function About() {
             { icon: MapPin, label: "Location", value: "Lahore, PK" },
             { icon: Briefcase, label: "Role", value: "Analytics Engineer" },
             { icon: GraduationCap, label: "Education", value: "B.S. IT" },
-            { icon: Award, label: "Experience", value: "4+ Years" },
+            { icon: Award, label: "Experience", value: "5+ Years" },
           ].map((item) => (
             <div
               key={item.label}

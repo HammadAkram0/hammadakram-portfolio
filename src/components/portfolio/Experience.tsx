@@ -3,17 +3,17 @@ import { Section } from "./Section";
 
 const jobs = [
   {
-    company: "Systems Limited",
-    role: "Data Analytics Consultant",
-    period: "Apr 2026 – Present",
-    location: "Lahore",
+    company: "Xvantech",
+    role: "Power BI Developer",
+    period: "Aug 2025 – Present",
+    location: "Arizona, USA",
     bullets: [
-      "Unified Genesys, Dynamics 365, Kore.ai, and Hive data into a single Power BI model for multiple public-sector entities",
-      "Delivered operational, ITSM, and customer experience dashboards covering 90+ KPIs, including live queue volumes, agent status, and SLA compliance",
-      "Built executive scorecards consolidating 19 KPIs into weighted performance scores with custom DAX-generated SVG visuals",
-      "Implemented Row-Level Security and role-specific views, and documented KPI definitions, DAX logic, and source systems for audit and handover",
-      "Resolved pipeline, data quality, and modeling issues, including bridge tables and inconsistent channel definitions",
-      "Automated recurring reporting and scheduled PDF delivery with Power Automate",
+      "Built end-to-end Power BI dashboards for automotive clients covering KPI tracking, GP margin, marketing analytics, call analytics, and payroll reporting",
+      "Optimized an oversized Power BI semantic model by consolidating 900+ DAX measures into approximately 80 through redundancy elimination, relationship restructuring, and DAX rewrites",
+      "Unified five Fivetran-synced platforms, including Google Ads, Tekmetric, Paylocity, 3CX, and NetSuite, into one reporting layer serving 8+ automotive locations",
+      "Built reusable DAX period-switching logic for WTD, MTD, SPLY, and Pace reporting with MST timezone handling",
+      "Engineered Azure SQL views and CTEs for GP analysis and paginated reports, using OPENJSON to parse and enrich call data",
+      "Automated real-time low-sentiment call alerts and call-note workflows with Power Automate and scheduled DAX queries",
     ],
   },
   {
